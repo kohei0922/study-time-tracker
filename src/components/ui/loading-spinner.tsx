@@ -7,7 +7,7 @@ interface LoadingSpinnerProps {
 export function LoadingSpinner({ className }: LoadingSpinnerProps) {
   return (
     <div className={cn('flex items-center justify-center', className)}>
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-blue-600" />
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-white/20 border-t-white" />
     </div>
   )
 }

@@ -83,13 +83,8 @@ export function AuthForm({ mode }: AuthFormProps) {
   }
 
   return (
-    <Card className="w-full max-w-md">
-      <CardHeader>
-        <CardTitle>
-          {mode === 'login' ? 'ログイン' : '新規登録'}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
+    <Card className="w-full border-blue-500/30 bg-[#1a1a1a]/80 backdrop-blur-sm">
+      <CardContent className="pt-6">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {mode === 'signup' && (
             <div className="space-y-2">
@@ -135,34 +130,22 @@ export function AuthForm({ mode }: AuthFormProps) {
             )}
           </div>
 
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button 
+            type="submit" 
+            variant="playstation" 
+            size="lg" 
+            className="w-full mt-6" 
+            disabled={isLoading}
+          >
             {isLoading ? (
               <LoadingSpinner className="h-5 w-5" />
             ) : mode === 'login' ? (
-              'ログイン'
+              'ゲーム開始'
             ) : (
-              '登録する'
+              'アカウント作成'
             )}
           </Button>
         </form>
-
-        <div className="mt-4 text-center text-sm">
-          {mode === 'login' ? (
-            <>
-              アカウントをお持ちでない方は{' '}
-              <a href="/signup" className="text-blue-600 hover:underline">
-                新規登録
-              </a>
-            </>
-          ) : (
-            <>
-              すでにアカウントをお持ちの方は{' '}
-              <a href="/login" className="text-blue-600 hover:underline">
-                ログイン
-              </a>
-            </>
-          )}
-        </div>
       </CardContent>
     </Card>
   )

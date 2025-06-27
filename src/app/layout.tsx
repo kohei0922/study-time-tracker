@@ -47,25 +47,28 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={inter.className}>
+    <html lang="ja" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         {children}
         <Toaster
           position="top-right"
           toastOptions={{
             duration: 4000,
             style: {
-              background: '#363636',
-              color: '#fff',
+              background: '#1a1a1a',
+              color: '#ffffff',
+              border: '1px solid #2d2d2d',
             },
             success: {
               style: {
-                background: '#10B981',
+                background: '#0070f3',
+                color: '#ffffff',
               },
             },
             error: {
               style: {
                 background: '#EF4444',
+                color: '#ffffff',
               },
             },
           }}
