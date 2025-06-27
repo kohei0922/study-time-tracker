@@ -1,114 +1,121 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
 
+/* 完全な横書き強制設定 */
+* {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  text-align: left !important;
+}
+
+html, body {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #E6F7FF;
+  color: #0F2027;
+}
+
+/* 新しいカラーパレット（smbackground.pngベース） */
 :root {
-  /* PlayStation-inspired Brand Colors */
-  --primary: #0070f3;
-  --secondary: #000000;
-  --accent: #006FED;
-  --background: #000000;
-  --surface: #1a1a1a;
-  --surface-light: #2d2d2d;
-  --text: #ffffff;
-  --text-secondary: #b8b8b8;
-  --muted: #6b6b6b;
-  --border: #2d2d2d;
-  --playstation-blue: #00439C;
-  --playstation-lightblue: #0070f3;
-  
-  /* Legacy support */
-  --background-legacy: var(--background);
-  --foreground: var(--text);
+  /* 背景の青緑色に合わせたカラーパレット */
+  --background-primary: #E6F7FF;      /* 薄い青 */
+  --background-secondary: #B3E5FC;    /* 中間の青 */
+  --background-tertiary: #81D4FA;     /* 濃い青 */
+  --card-background: rgba(255, 255, 255, 0.85); /* 半透明白 */
+  --card-background-solid: #FFFFFF;   /* 純白 */
+  --text-primary: #0F2027;            /* 濃い青灰色 */
+  --text-secondary: #2E4A57;          /* 中間の青灰色 */
+  --text-muted: #5A7684;              /* 薄い青灰色 */
+  --accent-primary: #00ACC1;          /* 青緑アクセント */
+  --accent-secondary: #0097A7;        /* 濃い青緑 */
+  --border-color: rgba(129, 212, 250, 0.3); /* 薄い青ボーダー */
+  --shadow-color: rgba(15, 32, 39, 0.1);    /* 薄いシャドウ */
 }
 
-@theme inline {
-  /* Custom Color Palette */
-  --color-studyminus-primary: var(--primary);
-  --color-studyminus-secondary: var(--secondary);
-  --color-studyminus-accent: var(--accent);
-  --color-studyminus-background: var(--background);
-  --color-studyminus-surface: var(--surface);
-  --color-studyminus-text: var(--text);
-  --color-studyminus-muted: var(--muted);
-  --color-studyminus-border: var(--border);
-  
-  /* Override default colors */
-  --color-background: var(--background);
-  --color-foreground: var(--text);
-  
-  /* Custom font families */
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-mono: 'Roboto Mono', 'Courier New', monospace;
-  
-  /* Custom spacing for minimal design */
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 0.75rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  
-  /* Custom border radius for sharp design */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
+/* すべてのテキスト要素に適用 */
+h1, h2, h3, h4, h5, h6, p, span, div, label, input, button, a {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
+  text-align: left !important;
+  color: var(--text-primary);
 }
 
-body {
-  background: var(--background);
-  color: var(--text);
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* フレックスコンテナとその子要素 */
+.flex, .flex > * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  direction: ltr !important;
 }
 
-/* Custom animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+/* 古いカラーパレットの強制上書き */
+.bg-black {
+  background-color: var(--card-background-solid) !important;
 }
 
-@keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+.bg-gray-900 {
+  background-color: var(--background-primary) !important;
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 112, 243, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(0, 112, 243, 0.5); }
+.bg-gray-800 {
+  background-color: var(--card-background-solid) !important;
 }
 
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.bg-gray-50 {
+  background-color: var(--background-primary) !important;
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out;
+.bg-white {
+  background-color: var(--card-background) !important;
 }
 
-.animate-scale-in {
-  animation: scaleIn 0.2s ease-out;
+.text-white {
+  color: var(--text-primary) !important;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s infinite;
+.text-gray-100 {
+  color: var(--text-primary) !important;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
+.text-gray-900 {
+  color: var(--text-primary) !important;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--background);
+.text-gray-600 {
+  color: var(--text-secondary) !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--muted);
-  border-radius: 3px;
+.text-gray-700 {
+  color: var(--text-secondary) !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+.border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+.border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+
+/* 新しいアクセントカラー */
+.text-red-600 {
+  color: var(--accent-primary) !important;
+}
+
+.bg-red-600 {
+  background-color: var(--accent-primary) !important;
+}
+
+.bg-red-700 {
+  background-color: var(--accent-secondary) !important;
+}
+
+.hover\:bg-red-700:hover {
+  background-color: var(--accent-secondary) !important;
+}
+
+.focus\:ring-red-500:focus {
+  box-shadow: 0 0 0 3px rgba(0, 172, 193, 0.3) !important;
 }

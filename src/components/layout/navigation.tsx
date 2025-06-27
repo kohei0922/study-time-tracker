@@ -32,7 +32,7 @@ export function Navigation() {
   }
 
   return (
-    <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-lg shadow-lg border-b border-white/10 z-50">
+    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-lg shadow-sm border-b border-gray-200 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
@@ -43,7 +43,7 @@ export function Navigation() {
                   alt="Studyminus" 
                   className="w-8 h-8 object-contain"
                 />
-                <h1 className="text-xl font-bold text-white">Studyminus</h1>
+                <h1 className="text-xl font-bold text-gray-900">Studyminus</h1>
               </Link>
             </div>
             <div className="hidden sm:ml-8 sm:flex sm:space-x-6">
@@ -56,8 +56,8 @@ export function Navigation() {
                     href={item.href}
                     className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? 'bg-blue-600 text-white'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                        ? 'bg-red-600 text-white shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     }`}
                   >
                     <Icon className="w-4 h-4 mr-2" />
@@ -72,7 +72,7 @@ export function Navigation() {
               variant="ghost"
               size="sm"
               onClick={handleSignOut}
-              className="ml-4"
+              className="ml-4 text-gray-600 hover:text-gray-900"
             >
               <LogOut className="w-4 h-4 mr-2" />
               ログアウト

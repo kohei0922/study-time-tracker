@@ -8,9 +8,14 @@ const Label = forwardRef<
   <label
     ref={ref}
     className={cn(
-      'text-sm font-medium leading-none text-white peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+      'text-sm font-medium leading-none text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
       className
     )}
+    style={{
+      writingMode: 'horizontal-tb',
+      textOrientation: 'mixed',
+      direction: 'ltr'
+    }}
     {...props}
   />
 ))

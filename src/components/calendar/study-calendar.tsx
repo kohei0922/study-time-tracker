@@ -116,7 +116,7 @@ export function StudyCalendar({ studyDays, onDateClick }: StudyCalendarProps) {
                 <div className="h-full flex flex-col items-center justify-center">
                   <div className={cn(
                     'text-xs font-medium',
-                    minutes > 0 && 'text-white'
+                    minutes > 0 ? 'text-white' : 'text-gray-900'
                   )}>
                     {format(day, 'd')}
                   </div>

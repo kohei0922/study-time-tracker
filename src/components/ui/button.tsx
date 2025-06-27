@@ -3,17 +3,15 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'relative inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:pointer-events-none disabled:opacity-50 overflow-hidden',
+  'relative inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: 'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800',
-        outline: 'border-2 border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40',
-        ghost: 'text-gray-300 hover:bg-white/10 hover:text-white',
+        default: 'bg-cyan-600 text-white hover:bg-cyan-700 active:bg-cyan-800 shadow-md hover:shadow-lg',
+        outline: 'border border-cyan-300 bg-transparent text-cyan-700 hover:bg-cyan-50 backdrop-blur-sm',
+        ghost: 'text-cyan-700 hover:bg-cyan-100 backdrop-blur-sm',
         destructive: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800',
-        secondary: 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm',
-        accent: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 animate-pulse-glow',
-        playstation: 'bg-[#006FED] text-white hover:bg-[#0055CC] active:bg-[#0044AA] shadow-lg',
+        secondary: 'bg-cyan-100 text-cyan-900 hover:bg-cyan-200 backdrop-blur-sm',
       },
       size: {
         default: 'h-12 px-8 py-3 text-base',
@@ -43,6 +41,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         disabled={loading || props.disabled}
+        style={{
+          writingMode: 'horizontal-tb',
+          textOrientation: 'mixed',
+          direction: 'ltr'
+        }}
         {...props}
       >
         {loading && (

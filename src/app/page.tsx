@@ -34,9 +34,17 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-black">
+    <div 
+      className="min-h-screen bg-gray-50 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url(/smbackground.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* ヘッダー */}
-      <header className="fixed top-0 w-full bg-black/80 backdrop-blur-lg shadow-lg border-b border-white/10 z-50">
+      <header className="fixed top-0 w-full bg-white/80 backdrop-blur-lg shadow-sm border-b border-blue-200/30 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
             <img 
@@ -44,78 +52,93 @@ export default function LandingPage() {
               alt="Studyminus" 
               className="w-8 h-8 object-contain"
             />
-            <h1 className="text-2xl font-bold text-white">Studyminus</h1>
+            <h1 className="text-2xl font-bold text-cyan-800">Studyminus</h1>
           </div>
           <div className="space-x-3">
             <Link href="/login">
               <Button variant="ghost" size="sm">ログイン</Button>
             </Link>
             <Link href="/signup">
-              <Button variant="playstation" size="sm">新規登録</Button>
+              <Button variant="default" size="sm">新規登録</Button>
             </Link>
           </div>
         </div>
       </header>
 
       {/* ヒーローセクション */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
-        <div className="relative max-w-6xl mx-auto">
-          <div className="text-center animate-fade-in">
-            <div className="mb-8">
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-12">
+            <div className="flex items-center justify-center mb-8">
               <img 
                 src="/studyminus.png" 
                 alt="Studyminus" 
-                className="w-24 h-24 mx-auto mb-6 object-contain"
+                className="w-16 h-16 mr-4 object-contain"
               />
+              <h1 className="text-6xl sm:text-7xl font-bold text-cyan-900">
+                Study<span className="text-cyan-600">minus</span>
+              </h1>
             </div>
-            <h2 className="text-5xl sm:text-7xl font-bold text-white mb-6 leading-tight">
-              学習を
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">進化</span>
-              させよう
-            </h2>
-            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              PlayStation風のクールなデザインで、学習時間管理を革新。
-              <br />高校生・大学受験生のための次世代学習プラットフォーム。
+            <p className="text-2xl text-cyan-800 mb-12 max-w-3xl mx-auto leading-relaxed">
+              シンプルで洗練された学習時間管理アプリ<br />
+              科目別の記録と可視化で、効率的な学習をサポート
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/signup">
-                <Button variant="playstation" size="xl" className="w-full sm:w-auto animate-pulse-glow">
-                  今すぐプレイ
-                </Button>
-              </Link>
-              <Link href="#features">
-                <Button size="xl" variant="outline" className="w-full sm:w-auto">
-                  機能を見る
-                </Button>
-              </Link>
-            </div>
+          </div>
+          
+          <div className="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
+            <Link href="/signup">
+              <Button variant="default" size="xl" className="w-full sm:w-auto text-lg px-12 py-4">
+                今すぐ始める
+              </Button>
+            </Link>
+            <Link href="/login">
+              <Button variant="outline" size="xl" className="w-full sm:w-auto text-lg px-12 py-4">
+                ログイン
+              </Button>
+            </Link>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon
+              return (
+                <div key={index} className="flex items-center justify-center space-x-3 text-cyan-800 bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-cyan-200/50">
+                  <Icon className="h-6 w-6 text-cyan-600" />
+                  <span className="text-base font-medium">{benefit.text}</span>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* 特徴セクション */}
-      <section id="features" className="py-24 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-white mb-4">
-              なぜStudyminusを選ぶのか
-            </h3>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              PlayStation風の洗練されたデザインと強力な機能で、学習体験を革新
+      {/* 機能セクション */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-cyan-900 mb-4">
+              学習を最適化する機能
+            </h2>
+            <p className="text-lg text-cyan-700 max-w-2xl mx-auto">
+              Studyminusは、効率的な学習をサポートするための機能を提供します。
             </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon
               return (
-                <Card key={index} className="text-center group hover:scale-105 transition-all duration-300 border-blue-500/20 hover:border-blue-500/40">
-                  <CardContent className="pt-8 pb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:from-blue-600/30 group-hover:to-blue-800/30 transition-colors border border-blue-500/30">
-                      <Icon className="h-8 w-8 text-blue-400" />
+                <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow bg-white/90 backdrop-blur-sm border-cyan-200/50">
+                  <CardContent>
+                    <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <Icon className="h-6 w-6 text-cyan-600" />
                     </div>
-                    <h4 className="text-lg font-bold mb-3 text-white">{feature.title}</h4>
-                    <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+                    <h3 className="text-lg font-semibold text-cyan-900 mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-cyan-700 text-sm">
+                      {feature.description}
+                    </p>
                   </CardContent>
                 </Card>
               )
@@ -124,86 +147,37 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* 使い方セクション */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            使い方は簡単
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
-              </div>
-              <h4 className="font-semibold mb-2">アカウント作成</h4>
-              <p className="text-gray-600 text-sm">
-                メールアドレスで簡単に登録できます
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
-              <h4 className="font-semibold mb-2">学習を記録</h4>
-              <p className="text-gray-600 text-sm">
-                タイマーで簡単に学習時間を記録
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
-              <h4 className="font-semibold mb-2">進捗を確認</h4>
-              <p className="text-gray-600 text-sm">
-                グラフで学習の成果を可視化
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA セクション */}
-      <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h3 className="text-4xl font-bold mb-6">
-            ゲームを始める準備はできましたか？
-          </h3>
-          <p className="text-xl mb-10 text-blue-100 max-w-2xl mx-auto">
-            Studyminusで学習を次のレベルへ。
-            <br />すべての機能を無料でアンロック。
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-cyan-50/80 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-cyan-900 mb-4">
+            今すぐ学習を始めよう
+          </h2>
+          <p className="text-lg text-cyan-700 mb-8">
+            Studyminusで効率的な学習習慣を身につけて、目標を達成しましょう。
           </p>
           <Link href="/signup">
-            <Button variant="playstation" size="xl" className="animate-pulse-glow shadow-2xl">
-              今すぐプレイを始める
+            <Button variant="default" size="xl">
+              無料で始める
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* ベネフィット */}
-      <section className="py-12 bg-black border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-8">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon
-              return (
-                <div key={index} className="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
-                  <Icon className="h-5 w-5 text-blue-400" />
-                  <span className="text-gray-300">{benefit.text}</span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* フッター */}
-      <footer className="bg-black border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-400">
-            <p>&copy; 2024 Studyminus. All rights reserved.</p>
+      <footer className="bg-white/90 backdrop-blur-sm border-t border-cyan-200/50 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <img 
+              src="/studyminus.png" 
+              alt="Studyminus" 
+              className="w-6 h-6 object-contain"
+            />
+            <span className="text-lg font-semibold text-cyan-900">Studyminus</span>
           </div>
+          <p className="text-cyan-700 text-sm">
+            © 2024 Studyminus. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

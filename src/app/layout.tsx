@@ -48,20 +48,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
+      <body 
+        className={inter.className} 
+        suppressHydrationWarning
+        style={{
+          writingMode: 'horizontal-tb',
+          textOrientation: 'mixed',
+          direction: 'ltr'
+        }}
+      >
         {children}
         <Toaster
           position="top-right"
           toastOptions={{
             duration: 4000,
             style: {
-              background: '#1a1a1a',
-              color: '#ffffff',
-              border: '1px solid #2d2d2d',
+              background: '#ffffff',
+              color: '#000000',
+              border: '1px solid #e5e7eb',
             },
             success: {
               style: {
-                background: '#0070f3',
+                background: '#dc2626',
                 color: '#ffffff',
               },
             },

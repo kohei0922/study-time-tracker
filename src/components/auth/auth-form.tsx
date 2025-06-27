@@ -9,11 +9,10 @@ import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import toast from 'react-hot-toast'
+import Link from 'next/link'
 
-// バリデーションスキーマ
 const authSchema = z.object({
   email: z.string().email('有効なメールアドレスを入力してください'),
   password: z.string().min(6, 'パスワードは6文字以上で入力してください'),
@@ -83,70 +82,90 @@ export function AuthForm({ mode }: AuthFormProps) {
   }
 
   return (
-    <Card className="w-full border-blue-500/30 bg-[#1a1a1a]/80 backdrop-blur-sm">
-      <CardContent className="pt-6">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          {mode === 'signup' && (
-            <div className="space-y-2">
-              <Label htmlFor="fullName">名前</Label>
-              <Input
-                id="fullName"
-                type="text"
-                placeholder="山田太郎"
-                {...register('fullName')}
-                disabled={isLoading}
-              />
-              {errors.fullName && (
-                <p className="text-sm text-red-500">{errors.fullName.message}</p>
-              )}
-            </div>
-          )}
-
+    <div className="w-full bg-white shadow-lg rounded-lg p-6 border border-gray-200">
+      <div className="space-y-1 pb-6">
+        <h2 className="text-2xl font-bold text-center text-gray-900">
+          {mode === 'login' ? 'ログイン' : '新規登録'}
+        </h2>
+      </div>
+      
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {mode === 'signup' && (
           <div className="space-y-2">
-            <Label htmlFor="email">メールアドレス</Label>
+            <Label htmlFor="fullName">名前</Label>
             <Input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              {...register('email')}
+              id="fullName"
+              type="text"
+              placeholder="山田太郎"
+              {...register('fullName')}
               disabled={isLoading}
             />
-            {errors.email && (
-              <p className="text-sm text-red-500">{errors.email.message}</p>
+            {errors.fullName && (
+              <p className="text-sm text-red-600">{errors.fullName.message}</p>
             )}
           </div>
+        )}
 
-          <div className="space-y-2">
-            <Label htmlFor="password">パスワード</Label>
-            <Input
-              id="password"
-              type="password"
-              placeholder="••••••••"
-              {...register('password')}
-              disabled={isLoading}
-            />
-            {errors.password && (
-              <p className="text-sm text-red-500">{errors.password.message}</p>
-            )}
-          </div>
-
-          <Button 
-            type="submit" 
-            variant="playstation" 
-            size="lg" 
-            className="w-full mt-6" 
+        <div className="space-y-2">
+          <Label htmlFor="email">メールアドレス</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            {...register('email')}
             disabled={isLoading}
-          >
-            {isLoading ? (
-              <LoadingSpinner className="h-5 w-5" />
-            ) : mode === 'login' ? (
-              'ゲーム開始'
-            ) : (
-              'アカウント作成'
-            )}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+          />
+          {errors.email && (
+            <p className="text-sm text-red-600">{errors.email.message}</p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="password">パスワード</Label>
+          <Input
+            id="password"
+            type="password"
+            placeholder="••••••••"
+            {...register('password')}
+            disabled={isLoading}
+          />
+          {errors.password && (
+            <p className="text-sm text-red-600">{errors.password.message}</p>
+          )}
+        </div>
+
+        <Button 
+          type="submit" 
+          className="w-full h-11"
+          disabled={isLoading}
+        >
+          {isLoading ? (
+            <LoadingSpinner className="h-5 w-5" />
+          ) : mode === 'login' ? (
+            'ログイン'
+          ) : (
+            '登録する'
+          )}
+        </Button>
+      </form>
+
+      <div className="mt-4 text-center text-sm">
+        {mode === 'login' ? (
+          <p className="text-gray-600">
+            アカウントをお持ちでない方は{' '}
+            <Link href="/signup" className="text-red-600 hover:text-red-700 font-medium">
+              新規登録
+            </Link>
+          </p>
+        ) : (
+          <p className="text-gray-600">
+            すでにアカウントをお持ちの方は{' '}
+            <Link href="/login" className="text-red-600 hover:text-red-700 font-medium">
+              ログイン
+            </Link>
+          </p>
+        )}
+      </div>
+    </div>
   )
 }
