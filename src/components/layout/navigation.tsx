@@ -32,14 +32,19 @@ export function Navigation() {
   }
 
   return (
-    <nav className="bg-white shadow-sm border-b">
+    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-200/50 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <h1 className="text-xl font-bold text-gray-900">Study Tracker</h1>
+              <Link href="/dashboard" className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-sm flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">S</span>
+                </div>
+                <h1 className="text-xl font-bold text-gray-900">Studyminus</h1>
+              </Link>
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <div className="hidden sm:ml-8 sm:flex sm:space-x-6">
               {navigation.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href
@@ -47,10 +52,10 @@ export function Navigation() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                    className={`inline-flex items-center px-3 py-1 rounded-sm text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? 'border-blue-500 text-gray-900'
-                        : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+                        ? 'bg-gradient-to-r from-red-50 to-red-100 text-red-700 border-b-2 border-red-600'
+                        : 'text-gray-600 hover:text-red-600 hover:bg-red-50'
                     }`}
                   >
                     <Icon className="w-4 h-4 mr-2" />

@@ -34,63 +34,77 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-gray-50">
       {/* ヘッダー */}
-      <header className="bg-white shadow-sm">
+      <header className="fixed top-0 w-full bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-200/50 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Study Time Tracker</h1>
-          <div className="space-x-4">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-sm flex items-center justify-center">
+              <span className="text-white font-bold text-sm">S</span>
+            </div>
+            <h1 className="text-2xl font-bold text-gray-900">Studyminus</h1>
+          </div>
+          <div className="space-x-3">
             <Link href="/login">
-              <Button variant="outline">ログイン</Button>
+              <Button variant="ghost" size="sm">ログイン</Button>
             </Link>
             <Link href="/signup">
-              <Button>新規登録</Button>
+              <Button size="sm" className="animate-pulse-glow">新規登録</Button>
             </Link>
           </div>
         </div>
       </header>
 
       {/* ヒーローセクション */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <h2 className="text-5xl font-bold text-gray-900 mb-6">
-          効率的な学習時間管理を
-          <span className="text-blue-600">始めよう</span>
-        </h2>
-        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Study Time Trackerは、高校生・大学受験生のための学習時間管理アプリです。
-          科目別の学習時間を記録し、目標達成をサポートします。
-        </p>
-        <div className="space-x-4">
-          <Link href="/signup">
-            <Button size="lg" className="px-8">
-              無料で始める
-            </Button>
-          </Link>
-          <Link href="#features">
-            <Button size="lg" variant="outline" className="px-8">
-              機能を見る
-            </Button>
-          </Link>
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="animate-fade-in">
+            <h2 className="text-6xl sm:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+              ミニマルな
+              <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">学習管理</span>
+            </h2>
+            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Studyminusは、シンプルで美しいデザインの学習時間管理アプリ。
+              <br />高校生・大学受験生のための最適化されたツール。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link href="/signup">
+                <Button size="xl" className="w-full sm:w-auto animate-pulse-glow">
+                  無料で始める
+                </Button>
+              </Link>
+              <Link href="#features">
+                <Button size="xl" variant="outline" className="w-full sm:w-auto">
+                  機能を見る
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 特徴セクション */}
-      <section id="features" className="py-20 bg-gray-50">
+      <section id="features" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            主な機能
-          </h3>
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold text-gray-900 mb-4">
+              なぜStudyminusなのか
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              ミニマルなデザインと強力な機能で、学習効率を最大化します
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon
               return (
-                <Card key={index} className="text-center">
-                  <CardContent className="pt-6">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="h-6 w-6 text-blue-600" />
+                <Card key={index} className="text-center group hover:scale-105 transition-all duration-300">
+                  <CardContent className="pt-8 pb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-sm flex items-center justify-center mx-auto mb-6 group-hover:from-red-200 group-hover:to-red-300 transition-colors">
+                      <Icon className="h-8 w-8 text-red-600" />
                     </div>
-                    <h4 className="text-lg font-semibold mb-2">{feature.title}</h4>
-                    <p className="text-gray-600 text-sm">{feature.description}</p>
+                    <h4 className="text-lg font-bold mb-3 text-gray-900">{feature.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -138,17 +152,19 @@ export default function LandingPage() {
       </section>
 
       {/* CTA セクション */}
-      <section className="py-20 bg-blue-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">
-            今すぐ学習管理を始めましょう
+      <section className="py-24 bg-gradient-to-r from-red-600 to-red-700 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <h3 className="text-4xl font-bold mb-6">
+            学習の質を変える時間です
           </h3>
-          <p className="text-xl mb-8 opacity-90">
-            無料で全ての機能をご利用いただけます
+          <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
+            今すぐStudyminusで効率的な学習管理を始めましょう。
+            <br />すべての機能を無料でお試しいただけます。
           </p>
           <Link href="/signup">
-            <Button size="lg" variant="outline" className="px-12 bg-white text-blue-600 hover:bg-gray-100">
-              無料で始める
+            <Button size="xl" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100 animate-pulse-glow">
+              今すぐ無料で始める
             </Button>
           </Link>
         </div>
@@ -175,7 +191,7 @@ export default function LandingPage() {
       <footer className="bg-white border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-gray-600">
-            <p>&copy; 2024 Study Time Tracker. All rights reserved.</p>
+            <p>&copy; 2024 Studyminus. All rights reserved.</p>
           </div>
         </div>
       </footer>
