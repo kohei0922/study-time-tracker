@@ -7,22 +7,7 @@ import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Pencil, Trash2, Clock, Calendar, BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
-
-interface SessionWithSubject {
-  id: string
-  started_at: string
-  ended_at: string | null
-  duration_minutes: number | null
-  notes: string | null
-  subject: {
-    name: string
-    color: string
-  } | null
-  user_subject: {
-    name: string
-    color: string
-  } | null
-}
+import type { SessionWithSubject } from '@/types/session'
 
 interface SessionListProps {
   sessions: SessionWithSubject[]

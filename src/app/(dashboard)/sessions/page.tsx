@@ -9,32 +9,7 @@ import { SessionFormModal } from '@/components/sessions/session-form-modal'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import { Plus } from 'lucide-react'
 import toast from 'react-hot-toast'
-
-interface SessionWithSubject {
-  id: string
-  started_at: string
-  ended_at: string | null
-  duration_minutes: number | null
-  notes: string | null
-  subject_id: string | null
-  user_subject_id: string | null
-  subject: {
-    id: string
-    name: string
-    color: string
-  } | null
-  user_subject: {
-    id: string
-    name: string
-    color: string
-  } | null
-}
-
-interface Subject {
-  id: string
-  name: string
-  color: string
-}
+import type { SessionWithSubject, Subject } from '@/types/session'
 
 export default function SessionsPage() {
   const [sessions, setSessions] = useState<SessionWithSubject[]>([])
