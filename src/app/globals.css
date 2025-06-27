@@ -2,15 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
 
 :root {
-  /* Studyminus Brand Colors */
-  --primary: #8B1A1A;
-  --secondary: #1A1A1A;
-  --accent: #DC2626;
-  --background: #FAFAFA;
-  --surface: #FFFFFF;
-  --text: #0A0A0A;
-  --muted: #6B7280;
-  --border: #E5E7EB;
+  /* PlayStation-inspired Brand Colors */
+  --primary: #0070f3;
+  --secondary: #000000;
+  --accent: #006FED;
+  --background: #000000;
+  --surface: #1a1a1a;
+  --surface-light: #2d2d2d;
+  --text: #ffffff;
+  --text-secondary: #b8b8b8;
+  --muted: #6b6b6b;
+  --border: #2d2d2d;
+  --playstation-blue: #00439C;
+  --playstation-lightblue: #0070f3;
   
   /* Legacy support */
   --background-legacy: var(--background);
@@ -70,8 +74,13 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.5); }
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 112, 243, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 112, 243, 0.5); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {

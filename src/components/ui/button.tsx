@@ -3,23 +3,24 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 rounded-sm text-sm font-semibold ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95',
+  'relative inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:pointer-events-none disabled:opacity-50 overflow-hidden',
   {
     variants: {
       variant: {
-        default: 'bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-700 hover:to-red-800 hover:scale-105 hover:shadow-lg hover:shadow-red-200/50',
-        outline: 'border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 hover:border-gray-400 hover:scale-105',
-        ghost: 'text-gray-700 hover:bg-gray-100 hover:text-gray-900 hover:scale-105',
-        destructive: 'bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 hover:scale-105',
-        secondary: 'bg-gradient-to-r from-gray-100 to-gray-200 text-gray-900 hover:from-gray-200 hover:to-gray-300 hover:scale-105',
-        accent: 'bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 hover:scale-105 animate-pulse-glow',
+        default: 'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800',
+        outline: 'border-2 border-white/20 bg-transparent text-white hover:bg-white/10 hover:border-white/40',
+        ghost: 'text-gray-300 hover:bg-white/10 hover:text-white',
+        destructive: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800',
+        secondary: 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm',
+        accent: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 animate-pulse-glow',
+        playstation: 'bg-[#006FED] text-white hover:bg-[#0055CC] active:bg-[#0044AA] shadow-lg',
       },
       size: {
-        default: 'h-10 px-6 py-2',
-        sm: 'h-8 rounded-sm px-4 text-xs',
-        lg: 'h-12 rounded-sm px-10 text-base font-bold',
-        xl: 'h-14 rounded-sm px-12 text-lg font-bold',
-        icon: 'h-10 w-10',
+        default: 'h-12 px-8 py-3 text-base',
+        sm: 'h-10 px-6 py-2 text-sm',
+        lg: 'h-14 px-10 py-3 text-lg',
+        xl: 'h-16 px-12 py-4 text-xl',
+        icon: 'h-12 w-12',
       },
     },
     defaultVariants: {

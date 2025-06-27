@@ -34,43 +34,54 @@ export default function LandingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-gray-50">
+    <div className="min-h-screen bg-black">
       {/* ヘッダー */}
-      <header className="fixed top-0 w-full bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-200/50 z-50">
+      <header className="fixed top-0 w-full bg-black/80 backdrop-blur-lg shadow-lg border-b border-white/10 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-sm flex items-center justify-center">
-              <span className="text-white font-bold text-sm">S</span>
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900">Studyminus</h1>
+            <img 
+              src="/studyminus.png" 
+              alt="Studyminus" 
+              className="w-8 h-8 object-contain"
+            />
+            <h1 className="text-2xl font-bold text-white">Studyminus</h1>
           </div>
           <div className="space-x-3">
             <Link href="/login">
               <Button variant="ghost" size="sm">ログイン</Button>
             </Link>
             <Link href="/signup">
-              <Button size="sm" className="animate-pulse-glow">新規登録</Button>
+              <Button variant="playstation" size="sm">新規登録</Button>
             </Link>
           </div>
         </div>
       </header>
 
       {/* ヒーローセクション */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-fade-in">
-            <h2 className="text-6xl sm:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              ミニマルな
-              <span className="bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent">学習管理</span>
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent"></div>
+        <div className="relative max-w-6xl mx-auto">
+          <div className="text-center animate-fade-in">
+            <div className="mb-8">
+              <img 
+                src="/studyminus.png" 
+                alt="Studyminus" 
+                className="w-24 h-24 mx-auto mb-6 object-contain"
+              />
+            </div>
+            <h2 className="text-5xl sm:text-7xl font-bold text-white mb-6 leading-tight">
+              学習を
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">進化</span>
+              させよう
             </h2>
-            <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Studyminusは、シンプルで美しいデザインの学習時間管理アプリ。
-              <br />高校生・大学受験生のための最適化されたツール。
+            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+              PlayStation風のクールなデザインで、学習時間管理を革新。
+              <br />高校生・大学受験生のための次世代学習プラットフォーム。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link href="/signup">
-                <Button size="xl" className="w-full sm:w-auto animate-pulse-glow">
-                  無料で始める
+                <Button variant="playstation" size="xl" className="w-full sm:w-auto animate-pulse-glow">
+                  今すぐプレイ
                 </Button>
               </Link>
               <Link href="#features">
@@ -84,27 +95,27 @@ export default function LandingPage() {
       </section>
 
       {/* 特徴セクション */}
-      <section id="features" className="py-24 bg-white">
+      <section id="features" className="py-24 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold text-gray-900 mb-4">
-              なぜStudyminusなのか
+            <h3 className="text-4xl font-bold text-white mb-4">
+              なぜStudyminusを選ぶのか
             </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              ミニマルなデザインと強力な機能で、学習効率を最大化します
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              PlayStation風の洗練されたデザインと強力な機能で、学習体験を革新
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon
               return (
-                <Card key={index} className="text-center group hover:scale-105 transition-all duration-300">
+                <Card key={index} className="text-center group hover:scale-105 transition-all duration-300 border-blue-500/20 hover:border-blue-500/40">
                   <CardContent className="pt-8 pb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-sm flex items-center justify-center mx-auto mb-6 group-hover:from-red-200 group-hover:to-red-300 transition-colors">
-                      <Icon className="h-8 w-8 text-red-600" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:from-blue-600/30 group-hover:to-blue-800/30 transition-colors border border-blue-500/30">
+                      <Icon className="h-8 w-8 text-blue-400" />
                     </div>
-                    <h4 className="text-lg font-bold mb-3 text-gray-900">{feature.title}</h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                    <h4 className="text-lg font-bold mb-3 text-white">{feature.title}</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -152,34 +163,34 @@ export default function LandingPage() {
       </section>
 
       {/* CTA セクション */}
-      <section className="py-24 bg-gradient-to-r from-red-600 to-red-700 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
+      <section className="py-24 bg-gradient-to-r from-blue-900 to-blue-800 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h3 className="text-4xl font-bold mb-6">
-            学習の質を変える時間です
+            ゲームを始める準備はできましたか？
           </h3>
-          <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">
-            今すぐStudyminusで効率的な学習管理を始めましょう。
-            <br />すべての機能を無料でお試しいただけます。
+          <p className="text-xl mb-10 text-blue-100 max-w-2xl mx-auto">
+            Studyminusで学習を次のレベルへ。
+            <br />すべての機能を無料でアンロック。
           </p>
           <Link href="/signup">
-            <Button size="xl" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100 animate-pulse-glow">
-              今すぐ無料で始める
+            <Button variant="playstation" size="xl" className="animate-pulse-glow shadow-2xl">
+              今すぐプレイを始める
             </Button>
           </Link>
         </div>
       </section>
 
       {/* ベネフィット */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-black border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-8">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon
               return (
-                <div key={index} className="flex items-center space-x-2">
-                  <Icon className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">{benefit.text}</span>
+                <div key={index} className="flex items-center space-x-3 bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                  <Icon className="h-5 w-5 text-blue-400" />
+                  <span className="text-gray-300">{benefit.text}</span>
                 </div>
               )
             })}
@@ -188,9 +199,9 @@ export default function LandingPage() {
       </section>
 
       {/* フッター */}
-      <footer className="bg-white border-t">
+      <footer className="bg-black border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600">
+          <div className="text-center text-gray-400">
             <p>&copy; 2024 Studyminus. All rights reserved.</p>
           </div>
         </div>
