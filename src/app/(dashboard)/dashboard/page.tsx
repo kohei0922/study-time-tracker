@@ -1,15 +1,18 @@
 'use client'
 
 import { useDashboardData } from '@/hooks/useDashboardData'
+import { useAIAnalysis } from '@/hooks/useAIAnalysis'
 import { formatMinutesToHours } from '@/lib/utils/format'
 import { StatsCard } from '@/components/dashboard/stats-card'
 import { SubjectChart } from '@/components/dashboard/subject-chart'
 import { DailyChart } from '@/components/dashboard/daily-chart'
+import { AIAnalysisDisplay } from '@/components/ai/ai-analysis-display'
 import { LoadingSpinner } from '@/components/ui/loading-spinner'
 import { Clock, Calendar, BookOpen, TrendingUp, Target, Award } from 'lucide-react'
 
 export default function DashboardPage() {
   const { stats, subjectStats, dailyStats, isLoading } = useDashboardData()
+  const { isAnalyzing, analysisResult, analyzeStudyData } = useAIAnalysis()
 
   if (isLoading) {
     return (
@@ -58,9 +61,18 @@ export default function DashboardPage() {
         </div>
 
         {/* グラフ */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <SubjectChart data={subjectStats} />
           <DailyChart data={dailyStats} />
+        </div>
+
+        {/* AI分析セクション */}
+        <div className="mb-8">
+          <AIAnalysisDisplay 
+            result={analysisResult}
+            isAnalyzing={isAnalyzing}
+            onAnalyze={analyzeStudyData}
+          />
         </div>
 
         {/* 総学習時間 */}

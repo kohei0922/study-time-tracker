@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
-import { Home, Timer, Clock, BarChart3, Target, User, LogOut } from 'lucide-react'
+import { Home, Timer, Clock, BarChart3, Target, User, LogOut, Brain } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 const navigation = [
@@ -13,6 +13,7 @@ const navigation = [
   { name: '学習履歴', href: '/sessions', icon: Clock },
   { name: '統計', href: '/stats', icon: BarChart3 },
   { name: '目標', href: '/goals', icon: Target },
+  { name: 'AIアドバイス', href: '/insights', icon: Brain },
   { name: 'プロフィール', href: '/profile', icon: User },
 ]
 

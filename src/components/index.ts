@@ -24,3 +24,6 @@ export * from './stats';
 
 // Goals Components
 export * from './goals';
+
+// AI Components
+export * from './ai';
