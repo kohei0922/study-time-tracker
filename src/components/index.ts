@@ -10,5 +10,17 @@ export * from './auth';
 // Dashboard Components
 export * from './dashboard';
 
-// Common Components
-export * from './common';
+// Session Components
+export * from './sessions';
+
+// Timer Components
+export * from './timer';
+
+// Calendar Components
+export * from './calendar';
+
+// Stats Components
+export * from './stats';
+
+// Goals Components
+export * from './goals';
