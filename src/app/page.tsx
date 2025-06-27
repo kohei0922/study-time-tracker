@@ -147,7 +147,7 @@ export default function LandingPage() {
             無料で全ての機能をご利用いただけます
           </p>
           <Link href="/signup">
-            <Button size="lg" variant="secondary" className="px-12">
+            <Button size="lg" variant="outline" className="px-12 bg-white text-blue-600 hover:bg-gray-100">
               無料で始める
             </Button>
           </Link>
